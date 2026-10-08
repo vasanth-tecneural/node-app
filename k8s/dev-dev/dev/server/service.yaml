@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: node-app-server
+  namespace: dev-dev
+  labels:
+    app.kubernetes.io/name: node-app-server
+    app.kubernetes.io/managed-by: deepagent
+spec:
+  type: ClusterIP
+  selector:
+    app.kubernetes.io/name: node-app-server
+  ports:
+    - name: http
+      port: 80
+      targetPort: 3000
